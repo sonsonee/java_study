@@ -1,0 +1,27 @@
+import java.util.*;
+
+class baekjoon_10798{
+
+	public static void main (String[] args){
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		String[] words = new String[5];
+		for(int i = 0; i < 5; i++)
+			words[i] = scanner.nextLine();
+		
+		String vertical = "";
+
+		int index = 0;
+		for(int i = 0; i < words[index++].length(); i++){
+			for(int j = 0; j < 5; j++){
+				if(!words[j].isBlank()){
+					vertical += words[j].charAt(i);
+					words[j].setCharAt(i,' ');
+				}
+			}
+		}
+		
+		System.out.print(vertical);
+	}
+}

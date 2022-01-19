@@ -1,0 +1,20 @@
+import java.util.*;
+
+class baekjoon_1668{
+
+	public static void main (String[] args){
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		int n = scanner.nextInt();
+		int[] height = new int[n];
+		
+		for(int i = 0; i < n; i++)
+			height[i] = scanner.nextInt();
+		
+		int vertical = 0;
+		int horizontal = 0;
+		
+		
+	}
+}
