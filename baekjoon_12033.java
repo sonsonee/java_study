@@ -1,3 +1,4 @@
+/* 작성중 */
 import java.util.*;
 import java.io.*;
 
@@ -31,9 +32,10 @@ class baekjoon_12033{
 			}
 			result.append("Case #").append(i+1).append(": ");
 			backtrack(0);
-			bw.write(result.toString());
+			
 		}
 		
+		bw.write(result.toString());
 		bw.flush();
 		bw.close();
 	}
@@ -47,14 +49,14 @@ class baekjoon_12033{
 		}
 		else{
 			for(int i = 0; i < N; i++){
-				if(P[i]%3 != 0) continue;	// 
+				if(P[i]%3 != 0) continue;
 				
-				int price = P[i] * 4 / 3;
+				int price = P[i] * (4 / 3);
 				if(Arrays.asList(P).contains(price)){
 					ans[count] = P[i];
-					visit[i] = true;
+					visit[i] = visit[Arrays.asList(P).indexOf(price)] = true;
 					backtrack(count+1);
-					visit[i] = false;
+					visit[i] = visit[Arrays.asList(P).indexOf(price)] = false;
 				}
 			}
 		}
