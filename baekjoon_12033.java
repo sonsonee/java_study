@@ -1,4 +1,3 @@
-/* 작성중 */
 import java.util.*;
 import java.io.*;
 
@@ -6,7 +5,6 @@ class baekjoon_12033{
 	
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	static StringTokenizer st;
 	static StringBuilder result = new StringBuilder();
 	
 	static int[] P;
@@ -24,41 +22,45 @@ class baekjoon_12033{
 			N = Integer.parseInt(br.readLine());	
 			P = new int[N*2];
 			ans = new int[N];
-			visit = new boolean[N];
+			visit = new boolean[N*2];
 			
-			st = new StringTokenizer(br.readLine());
+			String s = br. readLine();
+			String[] array = s.split(" ");
 			for(int j = 0; j < N*2; j++){
-				P[j] = Integer.parseInt(st.nextToken());
+				P[j] = Integer.parseInt(array[j]);
 			}
-			result.append("Case #").append(i+1).append(": ");
-			backtrack(0);
 			
+
+			int count = 0;
+			for(int k = 0; k < N*2; k++){
+				if(count == N) break;
+				if(visit[k] || P[k]%3 != 0) // 방문한 적 있거나 3으로 나눈 나머지가 0이 아닌 경우 (할인가 아닌 경우)
+					continue;	// 다음 배열로
+					
+				visit[k] = true;    // 할인가 방문 처리
+				int price = (P[k] / 3) * 4;	// 원가 계산 ( !!! int 범위를 넘어가지 않게 계산 순서에 주의할 것!!! )
+				for(int j = k + 1; j < N*2; j++){
+					if(price == P[j] && !visit[j]){		// 방문한 적 없고 P[j]가 원가랑 같으면
+						ans[count] = P[k];		// ans 배열에 할인가인 P[k] 저장
+						visit[j] = true;        // 원가 방문 처리
+						count++;
+						break;		// 탈출
+					}
+				}
+			}
+
+			result.append("Case #").append(i+1).append(": ");
+			for(int j = 0; j < N; j++){
+				result.append(ans[j]).append(' ');
+			}
+			result.append('\n');
 		}
+		
+		br.close();
 		
 		bw.write(result.toString());
 		bw.flush();
 		bw.close();
-	}
-	
-	public static void backtrack(int count){
-		if(count == N){
-			for(int i = 0; i < N; i++){
-				result.append(ans[i]).append(' ');
-			}
-			result.append('\n');
-		}
-		else{
-			for(int i = 0; i < N; i++){
-				if(P[i]%3 != 0) continue;
-				
-				int price = P[i] * (4 / 3);
-				if(Arrays.asList(P).contains(price)){
-					ans[count] = P[i];
-					visit[i] = visit[Arrays.asList(P).indexOf(price)] = true;
-					backtrack(count+1);
-					visit[i] = visit[Arrays.asList(P).indexOf(price)] = false;
-				}
-			}
-		}
+
 	}
 }
