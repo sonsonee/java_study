@@ -38,7 +38,7 @@ class baekjoon_12033{
 					continue;	// 다음 배열로
 					
 				visit[k] = true;    // 할인가 방문 처리
-				int price = (P[k] / 3) * 4;	// 원가 계산 ( !!! int 범위를 넘어가지 않게 계산 순서에 주의할 것!!! )
+				long price = (P[k] / 3) * 4;	// 원가 계산 
 				for(int j = k + 1; j < N*2; j++){
 					if(price == P[j] && !visit[j]){		// 방문한 적 없고 P[j]가 원가랑 같으면
 						ans[count] = P[k];		// ans 배열에 할인가인 P[k] 저장
