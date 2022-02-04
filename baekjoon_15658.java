@@ -1,7 +1,8 @@
+// 작성중
 import java.util.*;
 
 class baekjoon_15658{
-
+		
 	public static void main (String[] args){
 		
 		Scanner scanner = new Scanner(System.in);
@@ -23,10 +24,9 @@ class baekjoon_15658{
 		for(int i = 1; i < n; i++)
 			numOfCases *= (sum - i);
 		
-		
 		int min = 0;
 		int max = 0;
-		
-		
-	}
+	
+		for(int i = 0; i < n - 1; i++){
+			for(int j = 0; j < 	}
 }
