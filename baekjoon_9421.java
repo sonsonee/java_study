@@ -1,3 +1,4 @@
+// 작성 중
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -49,10 +50,10 @@ class baekjoon_9421{
 		if(e[i] == 2){
 			return 2;
 		}
-		else if(i == 0){
+		if(i == 0){
 			return 1;
 		}
-		else{
+
 			String s = Integer.toString(i);
 			char[] digit = s.toCharArray();
 			int sum = 0;
@@ -64,6 +65,6 @@ class baekjoon_9421{
 			
 			if(e[i] == 1) return 1;
 			else return 2;
-		}
+		
 	}
 }
