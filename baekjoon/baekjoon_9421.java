@@ -1,4 +1,3 @@
-package baekjoon;
 // 작성 중
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

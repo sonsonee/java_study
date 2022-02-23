@@ -1,4 +1,3 @@
-package baekjoon;
 import java.util.*;
 
 class baekjoon_1718{

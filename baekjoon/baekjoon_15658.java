@@ -1,4 +1,3 @@
-package baekjoon;
 // 작성중
 import java.util.*;
 
