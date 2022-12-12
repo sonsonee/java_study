@@ -15,7 +15,7 @@ public class baekjojon_10250 {
         for(int i = 0; i < T; i++) {
             st = new StringTokenizer(br.readLine());
             int H = Integer.parseInt(st.nextToken());
-            int W = Integer.parseInt(st.nextToken());
+            Integer.parseInt(st.nextToken());
             int N = Integer.parseInt(st.nextToken());
 
             int YY = N % H;
